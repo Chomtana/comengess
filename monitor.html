@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+
+  <style>
+    body {
+      background-color: black;
+    }
+
+    h2 {
+      color: white;
+      font-size: 64pt;
+      text-align: center;
+    }
+
+    h1 {
+      color: white;
+      font-size: 96pt;
+      text-align: center;
+    }
+
+    .display {
+      position: relative;
+      width: 200px;
+      height: 300px;
+    }
+
+    .segment {
+      height: 125px;
+      width: 15px;
+      background-color: #FF3333;
+      border-radius: 9999px;
+      box-shadow: 0px 0px 25px #FF3333;
+    }
+
+    .A {
+      position: absolute;
+      top: -45px;
+      left: 90px;
+      transform: rotate(90deg);
+    }
+
+    .B {
+      position: absolute;
+      top: 20px;
+      left: 160px;
+    }
+
+    .C {
+      position: absolute;
+      top: 150px;
+      left: 160px;
+    }
+
+    .D {
+      position: absolute;
+      top: 215px;
+      left: 90px;
+      transform: rotate(90deg);
+    }
+
+    .E {
+      position: absolute;
+      top: 150px;
+      left: 20px;
+    }
+
+    .F {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .G {
+      position: absolute;
+      top: 85px;
+      left: 90px;
+      transform: rotate(90deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-12" style="    text-align: center;">
+      <h1>My name</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <h2 contenteditable="true">Axis 1</h2>
+      <div class="d-flex justify-content-center">
+        <div class="display" id="a1m">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a1d1">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a1d2">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a1d3">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <h2 contenteditable="true">Axis 2</h2>
+      <div class="d-flex justify-content-center">
+        <div class="display" id="a2m">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a2d1">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a2d2">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a2d3">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <h2 contenteditable="true">Axis 3</h2>
+      <div class="d-flex justify-content-center">
+        <div class="display" id="a3m">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a3d1">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a3d2">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a3d3">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    class SevenSegment {
+      constructor(selector) {
+        this.selector = selector;
+      }
+
+      zero() {
+        this.lightsOut();
+        $('.A, .B, .C, .D, .E, .F', this.selector).css("opacity", 1);
+      }
+      one() {
+        this.lightsOut();
+        $('.B, .C', this.selector).css("opacity", 1);
+      }
+      two() {
+        this.lightsOut();
+        $('.A, .B, .D, .E, .G', this.selector).css("opacity", 1);
+      }
+      three() {
+        this.lightsOut();
+        $('.A, .B, .C, .D, .G', this.selector).css("opacity", 1);
+      }
+      four() {
+        this.lightsOut();
+        $('.B, .C, .F, .G', this.selector).css("opacity", 1);
+      }
+      five() {
+        this.lightsOut();
+        $('.A, .C, .D, .F, .G', this.selector).css("opacity", 1);
+      }
+      six() {
+        this.lightsOut();
+        $('.A, .C, .D, .E, .F, .G', this.selector).css("opacity", 1);
+      }
+      seven() {
+        this.lightsOut();
+        $('.A, .B, .C', this.selector).css("opacity", 1);
+      }
+      eight() {
+        this.lightsOut();
+        $('.A, .B, .C, .D, .E, .F, .G', this.selector).css("opacity", 1);
+      }
+      nine() {
+        this.lightsOut();
+        $('.A, .B, .C, .D, .F, .G', this.selector).css("opacity", 1);
+      }
+      lightsOut() {
+        $('.A, .B, .C, .D, .E, .G, .D, .F', this.selector).css("opacity", 0.1);
+      }
+      minus() {
+        this.lightsOut();
+        $('.G', this.selector).css("opacity", 1);
+      }
+      green() {
+        $('.A, .B, .C, .D, .E, .G, .D, .F', this.selector).css("background-color", "greenyellow").css("box-shadow", "0px 0px 25px greenyellow");
+      }
+      red() {
+        $('.A, .B, .C, .D, .E, .G, .D, .F', this.selector).css("background-color", "#FF3333").css("box-shadow", "0px 0px 25px #FF3333");
+      }
+    };
+
+    function changeOneDigit(ss, num) {
+      if (num == " ") ss.lightsOut();
+      num = parseInt(num)
+      if (num == 0) ss.zero();
+      if (num == 1) ss.one();
+      if (num == 2) ss.two();
+      if (num == 3) ss.three();
+      if (num == 4) ss.four();
+      if (num == 5) ss.five();
+      if (num == 6) ss.six();
+      if (num == 7) ss.seven();
+      if (num == 8) ss.eight();
+      if (num == 9) ss.nine();
+    }
+
+    function changeNumber(prefix, num) {
+
+      num = num.toString();
+      if (num[0] == '-') {
+        var ss = new SevenSegment("#" + prefix + "m");
+        ss.minus();
+        num = num.substr(1);
+      } else {
+        var ss = new SevenSegment("#" + prefix + "m");
+        ss.lightsOut();
+      }
+
+      while (num.length < 3) {
+        num = " " + num;
+      }
+
+      for (var i = 0; i < num.length; i++) {
+        var ss = new SevenSegment("#" + prefix + "d" + (i + 1));
+        changeOneDigit(ss, num[i]);
+      }
+    }
+
+    //changeNumber("a1", -35)
+    
+    function performLoop() {
+      $.get("/data",(data)=>{
+        changeNumber("a1", parseInt(data[0]));
+        changeNumber("a2", parseInt(data[1]));
+        changeNumber("a3", parseInt(data[2]));
+        if (data[3]=="Running") {
+          (new SevenSegment()).green();
+        } else {
+          (new SevenSegment()).red();
+        }
+        performLoop();
+      })
+    }
+    
+    performLoop();
+
+    /*var display = new SevenSegment("#a1d1");
+    display.one();
+    display.green();
+    setTimeout(function () {
+      display.two();
+    }, 1000);
+    setTimeout(function () {
+      display.three();
+    }, 2000);
+    setTimeout(function () {
+      display.four();
+    }, 3000);
+    setTimeout(function () {
+      display.five();
+    }, 4000);
+    setTimeout(function () {
+      display.six();
+    }, 5000);
+    setTimeout(function () {
+      display.seven();
+    }, 6000);
+    setTimeout(function () {
+      display.eight();
+    }, 7000);
+    setTimeout(function () {
+      display.nine();
+    }, 8000);
+    setTimeout(function () {
+      display.zero();
+    }, 9000);*/
+
+  </script>
+</body>
+
+</html>
