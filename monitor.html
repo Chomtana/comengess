@@ -216,7 +216,54 @@
         </div>
       </div>
     </div>
+
   </div>
+
+  <!--<div class="row">
+    <div class="col-4">
+      <h2 contenteditable="true">Distance from sensor</h2>
+    </div>
+    <div class="col-8">
+      <div class="d-flex justify-content-center">
+        <div class="display" id="a4m">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a4d1">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a4d2">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+        <div class="display" id="a4d3">
+          <div class="segment A"></div>
+          <div class="segment B"></div>
+          <div class="segment C"></div>
+          <div class="segment D"></div>
+          <div class="segment E"></div>
+          <div class="segment F"></div>
+          <div class="segment G"></div>
+        </div>
+      </div>
+    </div>
+  </div>-->
 
   <script>
     class SevenSegment {
@@ -317,13 +364,14 @@
     }
 
     //changeNumber("a1", -35)
-    
+
     function performLoop() {
-      $.get("/data",(data)=>{
+      $.get("/data", (data) => {
         changeNumber("a1", parseInt(data[0]));
         changeNumber("a2", parseInt(data[1]));
         changeNumber("a3", parseInt(data[2]));
-        if (data[3]=="Running") {
+        //changeNumber("a4", parseInt(data[3]));
+        if (data[3] == "Running") {
           (new SevenSegment()).green();
         } else {
           (new SevenSegment()).red();
@@ -331,7 +379,7 @@
         performLoop();
       })
     }
-    
+
     performLoop();
 
     /*var display = new SevenSegment("#a1d1");

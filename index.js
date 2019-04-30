@@ -43,7 +43,7 @@ app.get('/uploaddata', (req, res) => {
         }
       } else {      
         if (i==1) {
-          console.log(a1,a2);
+          //console.log(a1,a2);
         }
         if (Math.abs(a1-gooddata[i]) < Math.abs(a2-gooddata[i])) {
           gooddata[i] = a1;
@@ -55,9 +55,13 @@ app.get('/uploaddata', (req, res) => {
     }
     //console.log(gooddata);
     res.send("Running");
+    
+    console.log(currdata);
   } else {
     res.send("Stopped")
   }
+  
+  
 })
 
 app.get('/data', (req, res) => {
