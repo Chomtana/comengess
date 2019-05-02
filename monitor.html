@@ -5,6 +5,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.10/vue.js"></script>
 
   <style>
     body {
@@ -81,13 +82,28 @@
       left: 90px;
       transform: rotate(90deg);
     }
+
+    .btncon {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .btnconbtn:hover {
+      cursor: pointer;
+    }
+
+    * {
+      font-size: 18pt;
+    }
   </style>
 </head>
 
 <body>
   <div class="row">
     <div class="col-12" style="    text-align: center;">
-      <h1>My name</h1>
+      <h1>IOT Level</h1>
     </div>
   </div>
   <div class="row">
@@ -265,6 +281,48 @@
     </div>
   </div>-->
 
+  <div class="p-4 d-flex justify-content-around btncon">
+    <img src="./history.png" width="128" height="128" class="historybtn btnconbtn" onclick="viewHistory()">
+  </div>
+
+  <div id="historyvue">
+    <div class="modal" tabindex="-1" role="dialog" id="historymodal">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Measurement History</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">เวลา</th>
+                  <th scope="col">Axis 1</th>
+                  <th scope="col">Axis 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="row in rows">
+                  <td>{{row[4]}}</td>
+                  <td>{{row[0]}}</td>
+                  <td>{{row[1]}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" target="_blank" href="/iotlevel.csv">Export CSV</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script>
     class SevenSegment {
       constructor(selector) {
@@ -312,7 +370,7 @@
         $('.A, .B, .C, .D, .F, .G', this.selector).css("opacity", 1);
       }
       lightsOut() {
-        $('.A, .B, .C, .D, .E, .G, .D, .F', this.selector).css("opacity", 0.1);
+        $('.A, .B, .C, .D, .E, .G, .D, .F', this.selector).css("opacity", 0.15);
       }
       minus() {
         this.lightsOut();
@@ -380,7 +438,32 @@
       })
     }
 
+    function viewHistory() {
+      $("#historymodal").modal('show');
+    }
+
+    /*var historyvm = new Vue({
+      el: "#historyvue",
+      data: {
+        rows: [
+          [1, 2, 3, 4, 5]
+        ]
+      }
+    });*/
+
+    function performLoop2() {
+      $.get("/history", (data) => {
+        //Vue.set(historyvm,"rows",data);
+        performLoop2();
+        $("#historymodal tbody").empty();
+        for(var x of data) {
+          $("#historymodal tbody").append('<tr><td>'+x[4]+'</td><td>'+parseInt(x[0])+'</td><td>'+parseInt(x[1])+'</td></tr>')
+        }
+      })
+    }
+
     performLoop();
+    performLoop2();
 
     /*var display = new SevenSegment("#a1d1");
     display.one();
